@@ -1,5 +1,6 @@
 FROM python:3.9-alpine
 WORKDIR /usr/share/udemy
+RUN apk add curl jq
 ADD conftest.py conftest.py
 ADD main.py main.py
 ADD test_TestBasicTest.py test_TestBasicTest.py
