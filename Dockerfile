@@ -4,7 +4,9 @@ ADD conftest.py conftest.py
 ADD main.py main.py
 ADD test_TestBasicTest.py test_TestBasicTest.py
 ADD test_first_example.py test_first_example.py
-ADD chromedriver.exe chromedriver.exe
+ADD healthcheck.sh healthcheck.sh
+RUN chmod 777 healthcheck.sh
+
 RUN mkdir __logger
 
 # install google chrome
@@ -23,4 +25,5 @@ RUN pip install --upgrade pip
 # install selenium
 RUN pip install selenium
 RUN pip install pytest
-CMD ["pytest"]
+#CMD ["pytest"]
+ENTRYPOINT sh healthcheck.sh
